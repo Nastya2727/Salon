@@ -46,8 +46,6 @@ namespace Beauty {
         
         private global::System.Data.DataRelation relationFK_Записи_Клиенты;
         
-        private global::System.Data.DataRelation relationFK_Записи_Сотрудники;
-        
         private global::System.Data.DataRelation relationFK_Записи_Услуги;
         
         private global::System.Data.DataRelation relationFK_Заработная_плата_Специальности;
@@ -55,6 +53,8 @@ namespace Beauty {
         private global::System.Data.DataRelation relationFK_Пользователи_Сотрудники;
         
         private global::System.Data.DataRelation relationFK_Сотрудники_Специальности;
+        
+        private global::System.Data.DataRelation relationFK_Записи_Сотрудники;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -402,11 +402,11 @@ namespace Beauty {
             }
             this.relationFK_График_Сотрудники = this.Relations["FK_График_Сотрудники"];
             this.relationFK_Записи_Клиенты = this.Relations["FK_Записи_Клиенты"];
-            this.relationFK_Записи_Сотрудники = this.Relations["FK_Записи_Сотрудники"];
             this.relationFK_Записи_Услуги = this.Relations["FK_Записи_Услуги"];
             this.relationFK_Заработная_плата_Специальности = this.Relations["FK_Заработная_плата_Специальности"];
             this.relationFK_Пользователи_Сотрудники = this.Relations["FK_Пользователи_Сотрудники"];
             this.relationFK_Сотрудники_Специальности = this.Relations["FK_Сотрудники_Специальности"];
+            this.relationFK_Записи_Сотрудники = this.Relations["FK_Записи_Сотрудники"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -443,10 +443,6 @@ namespace Beauty {
                         this.tableКлиенты.Код_клиентаColumn}, new global::System.Data.DataColumn[] {
                         this.tableЗаписи.Код_клиентаColumn}, false);
             this.Relations.Add(this.relationFK_Записи_Клиенты);
-            this.relationFK_Записи_Сотрудники = new global::System.Data.DataRelation("FK_Записи_Сотрудники", new global::System.Data.DataColumn[] {
-                        this.tableСотрудники.Табельный_номер_сотрудникаColumn}, new global::System.Data.DataColumn[] {
-                        this.tableЗаписи.Табельный_номер_сотрудникаColumn}, false);
-            this.Relations.Add(this.relationFK_Записи_Сотрудники);
             this.relationFK_Записи_Услуги = new global::System.Data.DataRelation("FK_Записи_Услуги", new global::System.Data.DataColumn[] {
                         this.tableУслуги.Код_услугиColumn}, new global::System.Data.DataColumn[] {
                         this.tableЗаписи.Код_услугиColumn}, false);
@@ -463,6 +459,10 @@ namespace Beauty {
                         this.tableСпециальности.Код_специальностиColumn}, new global::System.Data.DataColumn[] {
                         this.tableСотрудники.Код_специальностиColumn}, false);
             this.Relations.Add(this.relationFK_Сотрудники_Специальности);
+            this.relationFK_Записи_Сотрудники = new global::System.Data.DataRelation("FK_Записи_Сотрудники", new global::System.Data.DataColumn[] {
+                        this.tableСотрудники.Табельный_номер_сотрудникаColumn}, new global::System.Data.DataColumn[] {
+                        this.tableЗаписи.Табельный_номер_сотрудникаColumn}, false);
+            this.Relations.Add(this.relationFK_Записи_Сотрудники);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1084,11 +1084,9 @@ namespace Beauty {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ЗаписиRow FindByДата_визитаТабельный_номер_сотрудникаВремя_начала(System.DateTime Дата_визита, int Табельный_номер_сотрудника, System.TimeSpan Время_начала) {
+            public ЗаписиRow FindByКод_записи(int Код_записи) {
                 return ((ЗаписиRow)(this.Rows.Find(new object[] {
-                            Дата_визита,
-                            Табельный_номер_сотрудника,
-                            Время_начала})));
+                            Код_записи})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1135,14 +1133,13 @@ namespace Beauty {
                 this.columnПосещение = new global::System.Data.DataColumn("Посещение", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnПосещение);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnДата_визита,
-                                this.columnТабельный_номер_сотрудника,
-                                this.columnВремя_начала}, true));
+                                this.columnКод_записи}, true));
                 this.columnКод_записи.AutoIncrement = true;
                 this.columnКод_записи.AutoIncrementSeed = -1;
                 this.columnКод_записи.AutoIncrementStep = -1;
                 this.columnКод_записи.AllowDBNull = false;
                 this.columnКод_записи.ReadOnly = true;
+                this.columnКод_записи.Unique = true;
                 this.columnДата_визита.AllowDBNull = false;
                 this.columnКод_услуги.AllowDBNull = false;
                 this.columnТабельный_номер_сотрудника.AllowDBNull = false;
@@ -3665,23 +3662,23 @@ namespace Beauty {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public СотрудникиRow СотрудникиRow {
-                get {
-                    return ((СотрудникиRow)(this.GetParentRow(this.Table.ParentRelations["FK_Записи_Сотрудники"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Записи_Сотрудники"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public УслугиRow УслугиRow {
                 get {
                     return ((УслугиRow)(this.GetParentRow(this.Table.ParentRelations["FK_Записи_Услуги"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Записи_Услуги"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public СотрудникиRow СотрудникиRow {
+                get {
+                    return ((СотрудникиRow)(this.GetParentRow(this.Table.ParentRelations["FK_Записи_Сотрудники"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Записи_Сотрудники"]);
                 }
             }
         }
@@ -4091,23 +4088,23 @@ namespace Beauty {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ЗаписиRow[] GetЗаписиRows() {
-                if ((this.Table.ChildRelations["FK_Записи_Сотрудники"] == null)) {
-                    return new ЗаписиRow[0];
-                }
-                else {
-                    return ((ЗаписиRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Записи_Сотрудники"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ПользователиRow[] GetПользователиRows() {
                 if ((this.Table.ChildRelations["FK_Пользователи_Сотрудники"] == null)) {
                     return new ПользователиRow[0];
                 }
                 else {
                     return ((ПользователиRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Пользователи_Сотрудники"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ЗаписиRow[] GetЗаписиRows() {
+                if ((this.Table.ChildRelations["FK_Записи_Сотрудники"] == null)) {
+                    return new ЗаписиRow[0];
+                }
+                else {
+                    return ((ЗаписиRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Записи_Сотрудники"])));
                 }
             }
         }
@@ -5325,8 +5322,8 @@ SELECT Код_записи, Дата_визита, Код_услуги, Табе
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int Код_услуги, int Код_клиента, string Посещение, int Original_Код_записи, System.DateTime Original_Дата_визита, int Original_Код_услуги, int Original_Табельный_номер_сотрудника, int Original_Код_клиента, System.TimeSpan Original_Время_начала, string Original_Посещение, int Код_записи) {
-            return this.Update(Original_Дата_визита, Код_услуги, Original_Табельный_номер_сотрудника, Код_клиента, Original_Время_начала, Посещение, Original_Код_записи, Original_Дата_визита, Original_Код_услуги, Original_Табельный_номер_сотрудника, Original_Код_клиента, Original_Время_начала, Original_Посещение, Код_записи);
+        public virtual int Update(System.DateTime Дата_визита, int Код_услуги, int Табельный_номер_сотрудника, int Код_клиента, System.TimeSpan Время_начала, string Посещение, int Original_Код_записи, System.DateTime Original_Дата_визита, int Original_Код_услуги, int Original_Табельный_номер_сотрудника, int Original_Код_клиента, System.TimeSpan Original_Время_начала, string Original_Посещение) {
+            return this.Update(Дата_визита, Код_услуги, Табельный_номер_сотрудника, Код_клиента, Время_начала, Посещение, Original_Код_записи, Original_Дата_визита, Original_Код_услуги, Original_Табельный_номер_сотрудника, Original_Код_клиента, Original_Время_начала, Original_Посещение, Original_Код_записи);
         }
     }
     

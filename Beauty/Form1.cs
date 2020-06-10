@@ -78,5 +78,11 @@ namespace Beauty
                 MessageBox.Show("Вы успешно ВОШЛИ!");
             }
         }
+
+        private void ЖурналToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Beauty.Form_журнал f = new Form_журнал();
+            f.Show();
+        }
     }
 }

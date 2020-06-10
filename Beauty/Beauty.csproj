@@ -81,11 +81,23 @@
     <Compile Include="Form_добавить_сотрудника.Designer.cs">
       <DependentUpon>Form_добавить_сотрудника.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_журнал.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_журнал.Designer.cs">
+      <DependentUpon>Form_журнал.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_запись.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_запись.Designer.cs">
       <DependentUpon>Form_запись.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_зп.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_зп.Designer.cs">
+      <DependentUpon>Form_зп.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_клиенты.cs">
       <SubType>Form</SubType>
@@ -128,8 +140,14 @@
     <EmbeddedResource Include="Form_добавить_сотрудника.resx">
       <DependentUpon>Form_добавить_сотрудника.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_журнал.resx">
+      <DependentUpon>Form_журнал.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_запись.resx">
       <DependentUpon>Form_запись.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_зп.resx">
+      <DependentUpon>Form_зп.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_клиенты.resx">
       <DependentUpon>Form_клиенты.cs</DependentUpon>
