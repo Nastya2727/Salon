@@ -75,6 +75,7 @@ namespace Beauty
             else if (Data.Logged == 1)
             {
                 this.Enabled = true;
+                MessageBox.Show("Вы успешно ВОШЛИ!");
             }
         }
     }
