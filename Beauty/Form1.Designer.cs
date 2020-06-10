@@ -67,28 +67,28 @@
             // клиентыToolStripMenuItem
             // 
             this.клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
-            this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.клиентыToolStripMenuItem.Text = "Клиенты";
             this.клиентыToolStripMenuItem.Click += new System.EventHandler(this.КлиентыToolStripMenuItem_Click);
             // 
             // сотрудникиToolStripMenuItem
             // 
             this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
-            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
             this.сотрудникиToolStripMenuItem.Click += new System.EventHandler(this.СотрудникиToolStripMenuItem_Click);
             // 
             // услугиToolStripMenuItem
             // 
             this.услугиToolStripMenuItem.Name = "услугиToolStripMenuItem";
-            this.услугиToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.услугиToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.услугиToolStripMenuItem.Text = "Услуги";
             this.услугиToolStripMenuItem.Click += new System.EventHandler(this.УслугиToolStripMenuItem_Click);
             // 
             // товарыИМатериалыToolStripMenuItem
             // 
             this.товарыИМатериалыToolStripMenuItem.Name = "товарыИМатериалыToolStripMenuItem";
-            this.товарыИМатериалыToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.товарыИМатериалыToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.товарыИМатериалыToolStripMenuItem.Text = "Товары и материалы";
             this.товарыИМатериалыToolStripMenuItem.Click += new System.EventHandler(this.ТоварыИМатериалыToolStripMenuItem_Click);
             // 
@@ -121,6 +121,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

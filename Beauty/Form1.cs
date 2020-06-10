@@ -53,5 +53,29 @@ namespace Beauty
             Beauty.Form_запись f = new Form_запись();
             f.Show();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.WindowState = FormWindowState.Maximized;
+            this.Enabled = false;
+            Form_auth f = new Form_auth();
+            f.ShowDialog();
+            if (Data.Logged == 0)
+            {
+                try
+                {
+                    this.Dispose();
+                }
+                catch
+                {
+
+                }
+            }
+            else if (Data.Logged == 1)
+            {
+                this.Enabled = true;
+            }
+        }
     }
 }
