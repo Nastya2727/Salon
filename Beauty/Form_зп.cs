@@ -16,5 +16,10 @@ namespace Beauty
         {
             InitializeComponent();
         }
+
+        private void Form_зп_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

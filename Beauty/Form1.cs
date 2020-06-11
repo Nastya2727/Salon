@@ -84,5 +84,11 @@ namespace Beauty
             Beauty.Form_журнал f = new Form_журнал();
             f.Show();
         }
+
+        private void ЗПToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Beauty.Form_зп f = new Form_зп();
+            f.Show();
+        }
     }
 }
