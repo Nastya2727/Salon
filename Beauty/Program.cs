@@ -10,8 +10,7 @@ namespace Beauty
 {
     public class Assist
     {
-        //Попробуй потом сделать вот эту штуку. По типу Assist assist = new Assist();
-        //assist.WriteExcel(и передай датагрид) я не уверен но должен сформироваться excel и открыться.
+        
         Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
         Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
         Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
