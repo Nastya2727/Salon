@@ -77,5 +77,11 @@ namespace Beauty
         {
 
         }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            Assist assist = new Assist();
+            assist.WriteExcel(dataGridView1);
+        }
     }
 }
