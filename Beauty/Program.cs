@@ -25,11 +25,11 @@ namespace Beauty
             for (int j = 0; j < dataGrid.ColumnCount; j++)
                 ExcelApp.Cells[1, j + 1] = dataGrid.Columns[j].HeaderText;
 
-            for (int i = 0; i < dataGrid.Rows.Count; i++)
+            for (int i = 1; i <= dataGrid.Rows.Count; i++)
             {
                 for (int j = 0; j < dataGrid.ColumnCount; j++)
                 {
-                    ExcelApp.Cells[i + 1, j + 1] = dataGrid.Rows[i].Cells[j].Value;
+                    ExcelApp.Cells[i + 1, j + 1] = dataGrid.Rows[i-1].Cells[j].Value;
                 }
             }
             ExcelApp.Visible = true;
