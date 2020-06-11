@@ -74,5 +74,10 @@ namespace Beauty
             }
 
         }
+
+        private void Form_auth_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
