@@ -99,6 +99,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form_зп";
             this.Text = "Form_зп";
+            this.Load += new System.EventHandler(this.Form_зп_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
