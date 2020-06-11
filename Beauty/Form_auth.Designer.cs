@@ -101,6 +101,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Form_auth";
             this.Text = "Form_auth";
+            this.Load += new System.EventHandler(this.Form_auth_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

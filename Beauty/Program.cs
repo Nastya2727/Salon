@@ -8,6 +8,37 @@ using System.Windows.Forms;
 
 namespace Beauty
 {
+    public class Assist
+    {
+        //Попробуй потом сделать вот эту штуку. По типу Assist assist = new Assist();
+        //assist.WriteExcel(и передай датагрид) я не уверен но должен сформироваться excel и открыться.
+        Microsoft.Office.Interop.Excel.Application ExcelApp = new Microsoft.Office.Interop.Excel.Application();
+        Microsoft.Office.Interop.Excel.Workbook ExcelWorkBook;
+        Microsoft.Office.Interop.Excel.Worksheet ExcelWorkSheet;
+        
+        public void WriteExcel(DataGridView dataGrid)
+        {
+            //Книга.
+            ExcelWorkBook = ExcelApp.Workbooks.Add(System.Reflection.Missing.Value);
+            //Таблица.
+            ExcelWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)ExcelWorkBook.Worksheets.get_Item(1);
+            
+            for (int j = 0; j < dataGrid.ColumnCount; j++)
+                ExcelApp.Cells[1, j + 1] = dataGrid.Columns[j].HeaderText;
+
+            for (int i = 0; i < dataGrid.Rows.Count; i++)
+            {
+                for (int j = 0; j < dataGrid.ColumnCount; j++)
+                {
+                    ExcelApp.Cells[i + 1, j + 1] = dataGrid.Rows[i].Cells[j].Value;
+                }
+            }
+            ExcelApp.Visible = true;
+            ExcelApp.UserControl = true;
+        }
+    }
+
+
 
     public static class Data
     {
