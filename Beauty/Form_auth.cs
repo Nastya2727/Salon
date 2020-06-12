@@ -79,5 +79,10 @@ namespace Beauty
         {
 
         }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.PasswordChar = '*';
+        }
     }
 }
