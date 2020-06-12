@@ -44,6 +44,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справочникиToolStripMenuItem,
             this.графикРаботыToolStripMenuItem,
@@ -127,7 +128,7 @@
             // зПToolStripMenuItem
             // 
             this.зПToolStripMenuItem.Name = "зПToolStripMenuItem";
-            this.зПToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.зПToolStripMenuItem.Size = new System.Drawing.Size(90, 22);
             this.зПToolStripMenuItem.Text = "ЗП";
             this.зПToolStripMenuItem.Click += new System.EventHandler(this.ЗПToolStripMenuItem_Click);
             // 
@@ -137,6 +138,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(525, 350);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";

@@ -12,6 +12,16 @@ namespace Beauty
 {
     public partial class Form1 : Form
     {
+        Form_клиенты form_Клиенты;
+        Form_сотрудники form_Сотрудники;
+        Form_услуги form_Услуги;
+        Form_товары form_Товары;
+        Form_график form_График;
+        Form_запись form_Запись;
+        Form_журнал form_Журнал;
+        Form_зп form_Зп;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -19,39 +29,75 @@ namespace Beauty
 
         private void КлиентыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Beauty.Form_клиенты f = new Form_клиенты();
-            f.Show();
+            if (form_Клиенты == null || form_Клиенты.IsDisposed)
+            {
+                form_Клиенты = new Form_клиенты()
+                {
+                    MdiParent = this
+                };
+                form_Клиенты.Show();
+            }
         }
 
         private void СотрудникиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Beauty.Form_сотрудники f = new Form_сотрудники();
-            f.Show();
+            if (form_Сотрудники == null || form_Сотрудники.IsDisposed)
+            {
+                form_Сотрудники = new Form_сотрудники()
+                {
+                    MdiParent = this
+                };
+                form_Сотрудники.Show();
+            }
 
         }
 
         private void УслугиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Beauty.Form_услуги f = new Form_услуги();
-            f.Show();
+            if (form_Услуги == null || form_Услуги.IsDisposed)
+            {
+                form_Услуги = new Form_услуги()
+                {
+                    MdiParent = this
+                };
+                form_Услуги.Show();
+            }
         }
 
         private void ТоварыИМатериалыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Beauty.Form_товары f = new Form_товары();
-            f.Show();
+            if (form_Товары == null || form_Товары.IsDisposed)
+            {
+                form_Товары = new Form_товары()
+                {
+                    MdiParent = this
+                };
+                form_Товары.Show();
+            }
         }
 
         private void ГрафикРаботыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Beauty.Form_график f = new Form_график();
-            f.Show();
+            if (form_График == null || form_График.IsDisposed)
+            {
+                form_График = new Form_график()
+                {
+                    MdiParent = this
+                };
+                form_График.Show();
+            }
         }
 
         private void ЗаписьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Beauty.Form_запись f = new Form_запись();
-            f.Show();
+            if (form_Запись == null || form_Запись.IsDisposed)
+            {
+                form_Запись = new Form_запись()
+                {
+                    MdiParent = this
+                };
+                form_Запись.Show();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -81,14 +127,26 @@ namespace Beauty
 
         private void ЖурналToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Beauty.Form_журнал f = new Form_журнал();
-            f.Show();
+            if (form_Журнал == null || form_Журнал.IsDisposed)
+            {
+                form_Журнал = new Form_журнал()
+                {
+                    MdiParent = this
+                };
+                form_Журнал.Show();
+            }
         }
 
         private void ЗПToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Beauty.Form_зп f = new Form_зп();
-            f.Show();
+            if (form_Зп == null || form_Зп.IsDisposed)
+            {
+                form_Зп = new Form_зп()
+                {
+                    MdiParent = this
+                };
+                form_Зп.Show();
+            }
         }
     }
 }
