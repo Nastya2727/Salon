@@ -44,17 +44,28 @@ namespace Beauty
         {
             try
             {
-                DateTime dateOfVisit = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[1].Value.ToString());
-                int codeOfService = Convert.ToInt32(dataGridView1.CurrentRow.Cells[5].Value.ToString());
-                int codeOfWorker = Convert.ToInt32(dataGridView1.CurrentRow.Cells[7].Value.ToString());
-                int codeOfClient = Convert.ToInt32(dataGridView1.CurrentRow.Cells[9].Value.ToString());
-                
-                string startAt = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                string[] time = startAt.Split(':');
-                TimeSpan timeOfStart = new TimeSpan(Convert.ToInt32(time[0]), Convert.ToInt32(time[1]), Convert.ToInt32(time[2]));
-                string attendance = dataGridView1.CurrentRow.Cells[11].Value.ToString();
-                записиTableAdapter1.Update(dateOfVisit, codeOfService, codeOfWorker, codeOfClient, timeOfStart, attendance, Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()), dateOfVisit, codeOfService, codeOfWorker, codeOfClient, timeOfStart, "Да");
-                
+                //DateTime dateOfVisit = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[1].Value.ToString());
+                //int codeOfService = Convert.ToInt32(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                //int codeOfWorker = Convert.ToInt32(dataGridView1.CurrentRow.Cells[7].Value.ToString());
+                //int codeOfClient = Convert.ToInt32(dataGridView1.CurrentRow.Cells[9].Value.ToString());
+
+                //string startAt = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                //string[] time = startAt.Split(':');
+                //TimeSpan timeOfStart = new TimeSpan(Convert.ToInt32(time[0]), Convert.ToInt32(time[1]), Convert.ToInt32(time[2]));
+                //string attendance = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+                //записиTableAdapter1.Update(dateOfVisit, codeOfService, codeOfWorker, codeOfClient, timeOfStart, attendance, Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()), dateOfVisit, codeOfService, codeOfWorker, codeOfClient, timeOfStart, "Да");
+
+                int code = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                SqlConnection Connection = new SqlConnection(@"data source=LAPTOP-5B5LI774\SQLEXPRESS;initial catalog=Beauty;Integrated Security =true");
+                var Command = new SqlCommand();
+                Command.CommandText = "Update Записи Set Посещение='Да' Where Код=@code";
+                SqlParameter p1 = new SqlParameter("code", code);
+                Command.Parameters.Add(p1);
+                Command.Connection = Connection;
+                Connection.Open();
+                Command.ExecuteNonQuery();
+                Connection.Close();
+
                 MessageBox.Show("Изменения сохранены");
                 loadDT();
             }
