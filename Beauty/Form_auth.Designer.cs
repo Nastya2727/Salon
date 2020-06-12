@@ -70,21 +70,18 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBox1.Location = new System.Drawing.Point(166, 78);
-            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(160, 31);
+            this.textBox1.Size = new System.Drawing.Size(160, 29);
             this.textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F);
             this.textBox2.Location = new System.Drawing.Point(166, 130);
-            this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(160, 31);
+            this.textBox2.Size = new System.Drawing.Size(160, 29);
             this.textBox2.TabIndex = 4;
             this.textBox2.UseSystemPasswordChar = true;
-            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // button1
             // 
