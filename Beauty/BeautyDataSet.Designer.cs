@@ -1084,9 +1084,11 @@ namespace Beauty {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ЗаписиRow FindByКод_записи(int Код_записи) {
+            public ЗаписиRow FindByДата_визитаТабельный_номер_сотрудникаВремя_начала(System.DateTime Дата_визита, int Табельный_номер_сотрудника, System.TimeSpan Время_начала) {
                 return ((ЗаписиRow)(this.Rows.Find(new object[] {
-                            Код_записи})));
+                            Дата_визита,
+                            Табельный_номер_сотрудника,
+                            Время_начала})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1133,13 +1135,14 @@ namespace Beauty {
                 this.columnПосещение = new global::System.Data.DataColumn("Посещение", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnПосещение);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnКод_записи}, true));
+                                this.columnДата_визита,
+                                this.columnТабельный_номер_сотрудника,
+                                this.columnВремя_начала}, true));
                 this.columnКод_записи.AutoIncrement = true;
                 this.columnКод_записи.AutoIncrementSeed = -1;
                 this.columnКод_записи.AutoIncrementStep = -1;
                 this.columnКод_записи.AllowDBNull = false;
                 this.columnКод_записи.ReadOnly = true;
-                this.columnКод_записи.Unique = true;
                 this.columnДата_визита.AllowDBNull = false;
                 this.columnКод_услуги.AllowDBNull = false;
                 this.columnТабельный_номер_сотрудника.AllowDBNull = false;
@@ -5322,8 +5325,8 @@ SELECT Код_записи, Дата_визита, Код_услуги, Табе
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime Дата_визита, int Код_услуги, int Табельный_номер_сотрудника, int Код_клиента, System.TimeSpan Время_начала, string Посещение, int Original_Код_записи, System.DateTime Original_Дата_визита, int Original_Код_услуги, int Original_Табельный_номер_сотрудника, int Original_Код_клиента, System.TimeSpan Original_Время_начала, string Original_Посещение) {
-            return this.Update(Дата_визита, Код_услуги, Табельный_номер_сотрудника, Код_клиента, Время_начала, Посещение, Original_Код_записи, Original_Дата_визита, Original_Код_услуги, Original_Табельный_номер_сотрудника, Original_Код_клиента, Original_Время_начала, Original_Посещение, Original_Код_записи);
+        public virtual int Update(int Код_услуги, int Код_клиента, string Посещение, int Original_Код_записи, System.DateTime Original_Дата_визита, int Original_Код_услуги, int Original_Табельный_номер_сотрудника, int Original_Код_клиента, System.TimeSpan Original_Время_начала, string Original_Посещение, int Код_записи) {
+            return this.Update(Original_Дата_визита, Код_услуги, Original_Табельный_номер_сотрудника, Код_клиента, Original_Время_начала, Посещение, Original_Код_записи, Original_Дата_визита, Original_Код_услуги, Original_Табельный_номер_сотрудника, Original_Код_клиента, Original_Время_начала, Original_Посещение, Код_записи);
         }
     }
     
