@@ -80,7 +80,8 @@ namespace Beauty
             else
             {
                 try
-                {
+                { 
+                    //  ???????????????????
                     услугиTableAdapter.Update(textBox2.Text, Convert.ToDecimal(textBox3.Text), textBox4.Text, Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()), textBox2.Text, Convert.ToDecimal(textBox3.Text), textBox4.Text);
 
                     
@@ -100,8 +101,6 @@ namespace Beauty
             try
             {
                 услугиTableAdapter.Delete( Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()), textBox2.Text, Convert.ToDecimal(textBox3.Text), textBox4.Text);
-
-
                 услугиTableAdapter.Update(this.beautyDataSet.Услуги);
                 MessageBox.Show("Услуга удалена!");
             }
