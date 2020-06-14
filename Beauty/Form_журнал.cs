@@ -58,7 +58,7 @@ namespace Beauty
                 int code = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
                 SqlConnection Connection = new SqlConnection(@"data source=LAPTOP-5B5LI774\SQLEXPRESS;initial catalog=Beauty;Integrated Security =true");
                 var Command = new SqlCommand();
-                Command.CommandText = "Update Записи Set Посещение='Да' Where Код=@code";
+                Command.CommandText = "Update Записи Set Посещение='Да' Where Код_записи=@code";
                 SqlParameter p1 = new SqlParameter("code", code);
                 Command.Parameters.Add(p1);
                 Command.Connection = Connection;
