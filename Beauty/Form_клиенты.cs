@@ -47,7 +47,13 @@ namespace Beauty
 
         private void Label2_Click(object sender, EventArgs e)
         {
-            this.label2.Text = "Привет";
+           
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            Assist assist = new Assist();
+            assist.WriteExcel(dataGridView1);
         }
     }
 }

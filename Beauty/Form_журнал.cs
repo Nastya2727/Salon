@@ -43,7 +43,7 @@ namespace Beauty
                 this.textBox3.Text = this.dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
                 this.textBox4.Text = this.dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
                 this.textBox5.Text = this.dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
-                this.comboBox1.Text = this.dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+                this.textBox6.Text = this.dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
 
             
 
@@ -90,5 +90,36 @@ namespace Beauty
            
 
         }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int code = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+            SqlConnection Connection = new SqlConnection(@"data source=LAPTOP-5B5LI774\SQLEXPRESS;initial catalog=Beauty;Integrated Security =true");
+            var Command = new SqlCommand();
+            Command.CommandText = "Update Записи Set Посещение='Нет' Where Код_записи=@code";
+            SqlParameter p1 = new SqlParameter("code", code);
+            Command.Parameters.Add(p1);
+            Command.Connection = Connection;
+            Connection.Open();
+            Command.ExecuteNonQuery();
+            Connection.Close();
+
+            MessageBox.Show("Изменения сохранены");
+            loadDT();
+        }
+            catch (Exception ex)
+            {
+                if (Off == true)
+                {
+
+                }
+                else
+                    MessageBox.Show("" + ex.Message);
+            }
+
+
+}
     }
 }

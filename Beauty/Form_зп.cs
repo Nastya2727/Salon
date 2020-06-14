@@ -30,7 +30,7 @@ namespace Beauty
                 SqlConnection Connection = new SqlConnection(Data.ConnectionString);
                 SqlCommand Command = new SqlCommand();
                 Command.Connection = Connection;
-                Command.CommandText = "Select b.Табельный_номер_сотрудника,Фамилия,Имя,Отчество,Код_специальности,Оплата_руб_в_час,Количество,Оплата_руб_в_час*Количество AS Без_налога,(Оплата_руб_в_час*Количество)*0.87 as После_налога From Сотрудники_Обслужили_За(@startDate,@endDate) b inner join Сотрудники_Тариф ON Сотрудники_Тариф.Табельный_номер_сотрудника = b.Табельный_номер_сотрудника";
+                Command.CommandText = "Select b.Табельный_номер_сотрудника as [Табельный номер сотрудника],Фамилия,Имя,Отчество,Оплата_руб_в_час as Ставка,Количество as [Количество обслуженных клиентов],(Оплата_руб_в_час*Количество)*0.87 as [Заработная плата] From Сотрудники_Обслужили_За(@startDate,@endDate) b inner join Сотрудники_Тариф ON Сотрудники_Тариф.Табельный_номер_сотрудника = b.Табельный_номер_сотрудника";
                 SqlParameter p1 = new SqlParameter("startDate", dateTimePicker1.Value.ToShortDateString());
                 SqlParameter p2 = new SqlParameter("endDate", dateTimePicker2.Value.ToShortDateString());
                 Command.Parameters.Add(p1);
@@ -44,6 +44,12 @@ namespace Beauty
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Assist assist = new Assist();
+            assist.WriteExcel(dataGridView1);
         }
     }
 }

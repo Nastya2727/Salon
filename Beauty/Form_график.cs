@@ -22,12 +22,33 @@ namespace Beauty
         {
             SqlConnection Connection = new SqlConnection(@"data source=LAPTOP-5B5LI774\SQLEXPRESS;initial catalog=Beauty;Integrated Security =true");
             var Command = new SqlCommand();
-            Command.CommandText = "SELECT        Сотрудники.Фамилия, Сотрудники.Имя, Специальности.Название_специальности, График.Дата, График.Комментарий FROM График INNER JOIN    Сотрудники ON График.Табельный_номер_сотрудника = Сотрудники.Табельный_номер_сотрудника INNER JOIN Специальности ON Сотрудники.Код_специальности = Специальности.Код_специальности";
+            Command.CommandText = "SELECT        Сотрудники.Табельный_номер_сотрудника as [Табельный номер сотрудника], Сотрудники.Фамилия as [Фамилия сотрудника], Записи.Дата_визита as [Дата], Записи.Время_начала as [Время], Услуги.Наименование_услуги as Услуга, Клиенты.Фамилия AS [Фамилия клиента] FROM Записи INNER JOIN   Клиенты ON Записи.Код_клиента = Клиенты.Код_клиента INNER JOIN  Сотрудники ON Записи.Табельный_номер_сотрудника = Сотрудники.Табельный_номер_сотрудника INNER JOIN   Услуги ON Записи.Код_услуги = Услуги.Код_услуги";
             Command.Connection = Connection;
             SqlDataAdapter s = new SqlDataAdapter(Command);
             DataTable dt = new DataTable();
             s.Fill(dt);
             dataGridView1.DataSource = dt;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                dataGridView1.Rows[i].Selected = false;
+                for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    if (dataGridView1.Rows[i].Cells[j].Value != null)
+                        if (dataGridView1.Rows[i].Cells[j].Value.ToString().Contains(textBox1.Text))
+                        {
+                            dataGridView1.Rows[i].Selected = true;
+                            break;
+                        }
+            }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            Assist assist = new Assist();
+            assist.WriteExcel(dataGridView1);
         }
     }
 }

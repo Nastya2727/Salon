@@ -20,7 +20,9 @@ namespace Beauty
         Form_запись form_Запись;
         Form_журнал form_Журнал;
         Form_зп form_Зп;
+        Form_пользователи Form_Пользователи;
 
+        
 
         public Form1()
         {
@@ -66,14 +68,7 @@ namespace Beauty
 
         private void ТоварыИМатериалыToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (form_Товары == null || form_Товары.IsDisposed)
-            {
-                form_Товары = new Form_товары()
-                {
-                    MdiParent = this
-                };
-                form_Товары.Show();
-            }
+            
         }
 
         private void ГрафикРаботыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -146,6 +141,29 @@ namespace Beauty
                     MdiParent = this
                 };
                 form_Зп.Show();
+            }
+        }
+
+        private void MenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+           /* if (Data.Logged == 1)
+                //   button2.Visible = true;
+                // else
+                //   button2.Visible = false;
+                пользователиToolStripMenuItem.Visible = true;
+            else
+                пользователиToolStripMenuItem.Visible = false;*/
+        }
+
+        private void ПользователиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Form_Пользователи == null || Form_Пользователи.IsDisposed)
+            {
+                Form_Пользователи = new Form_пользователи()
+                {
+                    MdiParent = this
+                };
+                Form_Пользователи.Show();
             }
         }
     }
