@@ -25,6 +25,7 @@ namespace Beauty
             button2.Visible = false;
             button3.Visible = false;
             this.label1.Text = "";
+            radioButton2.Checked = true;
 
         }
 

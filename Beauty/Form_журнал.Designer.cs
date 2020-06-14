@@ -47,6 +47,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beautyDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -206,12 +207,23 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "Журнал посещений салона красоты";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(494, 429);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(126, 23);
+            this.button3.TabIndex = 18;
+            this.button3.Text = "Сохранить в Excel";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
             // Form_журнал
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(653, 464);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox6);
@@ -259,5 +271,6 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button3;
     }
 }

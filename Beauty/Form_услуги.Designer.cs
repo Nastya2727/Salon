@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_услуги));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.услугиBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.beautyDataSet = new Beauty.BeautyDataSet();
-            this.услугиTableAdapter = new Beauty.BeautyDataSetTableAdapters.УслугиTableAdapter();
             this.кодуслугиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.наименованиеуслугиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.стоимостьуслугиDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.времяпроведенияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.услугиBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.beautyDataSet = new Beauty.BeautyDataSet();
+            this.услугиTableAdapter = new Beauty.BeautyDataSetTableAdapters.УслугиTableAdapter();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -48,6 +48,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.услугиBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beautyDataSet)).BeginInit();
@@ -69,20 +70,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(489, 161);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellEnter);
-            // 
-            // услугиBindingSource
-            // 
-            this.услугиBindingSource.DataMember = "Услуги";
-            this.услугиBindingSource.DataSource = this.beautyDataSet;
-            // 
-            // beautyDataSet
-            // 
-            this.beautyDataSet.DataSetName = "BeautyDataSet";
-            this.beautyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // услугиTableAdapter
-            // 
-            this.услугиTableAdapter.ClearBeforeFill = true;
             // 
             // кодуслугиDataGridViewTextBoxColumn
             // 
@@ -109,6 +96,20 @@
             this.времяпроведенияDataGridViewTextBoxColumn.HeaderText = "Время проведения";
             this.времяпроведенияDataGridViewTextBoxColumn.Name = "времяпроведенияDataGridViewTextBoxColumn";
             this.времяпроведенияDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // услугиBindingSource
+            // 
+            this.услугиBindingSource.DataMember = "Услуги";
+            this.услугиBindingSource.DataSource = this.beautyDataSet;
+            // 
+            // beautyDataSet
+            // 
+            this.beautyDataSet.DataSetName = "BeautyDataSet";
+            this.beautyDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // услугиTableAdapter
+            // 
+            this.услугиTableAdapter.ClearBeforeFill = true;
             // 
             // radioButton1
             // 
@@ -205,12 +206,23 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "label1";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(236, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(156, 25);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Список услуг";
+            // 
             // Form_услуги
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(634, 380);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -254,5 +266,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
