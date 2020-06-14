@@ -37,6 +37,15 @@ namespace Beauty
 
         private void DataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+            
+                this.textBox1.Text = this.dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                this.textBox2.Text = this.dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                this.textBox3.Text = this.dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                this.textBox4.Text = this.dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                this.textBox5.Text = this.dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+                this.comboBox1.Text = this.dataGridView1.Rows[e.RowIndex].Cells[9].Value.ToString();
+
+            
 
         }
 
